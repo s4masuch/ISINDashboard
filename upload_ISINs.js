@@ -2,7 +2,7 @@ const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storag
 
 // Azure Blob Storage configuration
 const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
-const containerName = "your-container-name"; // Replace with your container name
+const containerName = "csvfiles"; // Replace with your container name
 const blobName = "ISIN-Upload/myfile.txt"; // Provide the correct blob path
 const fileContent = "Your file content goes here"; // Provide your file content
 
