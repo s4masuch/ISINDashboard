@@ -79,8 +79,8 @@ body, ul, li, p {
   border-radius: 10px;
   position: fixed;
   top: 10px; /* Increased space on top */
-  left: 20%; /* Adjusted to accommodate the navigation bar width and space */
-  width: 70%; /* Take up a larger portion of the screen */
+  left: 10%; /* Adjusted to accommodate the navigation bar width and space */
+  width: 78%; /* Take up a larger portion of the screen */
   height: calc(100vh - 20px); /* Full viewport height with top and bottom space */
   display: flex;
   justify-content: center;
