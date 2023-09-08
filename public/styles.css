@@ -11,44 +11,83 @@ body, ul, li {
   background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
   position: fixed;
-  top: 40px; /* Add space on top */
-  left: 40px; /* Add space on the left */
-  bottom: 40px; /* Add space on the bottom */
-  width: 15%; /* Increase width by 15% */
-  height: calc(100vh - 80px); /* Full viewport height with top, bottom, and left space */
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align items to the right */
-  justify-content: flex-start; /* Start from the top */
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .vertical-nav ul {
-  padding: 10px 0; /* Decrease vertical space between buttons */
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* Align items to the right */
-  justify-content: flex-start; /* Start from the top */
-  height: 100%; /* Ensure the ul takes up the full height */
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
 }
 
 .vertical-nav li {
-  margin-bottom: 5px; /* Decrease vertical space between buttons */
-  width: 100%; /* Ensure all buttons have the same width */
+  margin-bottom: 5px;
+  width: 100%;
 }
 
-.vertical-nav a {
+.vertical-nav .nav-link {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Align text to the right */
   padding: 10px;
-  color: #333; /* Text color */
+  color: #333;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  width: 100%; /* Ensure full width for button text */
+  width: 100%;
+  cursor: pointer; /* Add cursor pointer for clickable links */
 }
 
-.vertical-nav a:hover,
-.vertical-nav a.active { /* Mark the headings once they are clicked */
-  background-color: #ccc; /* Slightly darker gray background color when clicked */
+.vertical-nav .nav-link:hover,
+.vertical-nav .nav-link.active {
+  background-color: #ccc;
   border-radius: 5px;
+}
+
+/* Add FontAwesome icons */
+.vertical-nav img {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Style the content window */
+.content-window {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85%; /* Take up the remaining 85% of the screen */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Hide content overflow */
+}
+
+/* Style the content inside the window */
+.content {
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .vertical-nav {
+    width: 25%;
+  }
+  
+  .content-window {
+    width: 75%;
+  }
 }
