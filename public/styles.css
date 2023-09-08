@@ -12,7 +12,7 @@ body, ul, li, p {
   border-radius: 10px;
   position: fixed;
   top: 10px; /* Increased space on top */
-  left: 20px; /* Add space on the left */
+  left: 25px; /* Add space on the left */
   width: 15%;
   height: calc(100vh - 20px); /* Full viewport height with top and bottom space */
   display: flex;
