@@ -8,7 +8,7 @@ body, ul, li {
 
 /* Style the vertical navigation bar */
 .vertical-nav {
-  background-color: rgb(18, 26, 40); /* Change background color */
+  background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
   position: fixed;
   top: 30px; /* Move the navigation bar down */
@@ -33,20 +33,20 @@ body, ul, li {
   display: flex;
   align-items: center;
   padding: 10px;
-  color: #fff;
+  color: #333; /* Text color */
   text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
 .vertical-nav a:hover,
 .vertical-nav a.active { /* Mark the headings once they are clicked */
-  background-color: rgb(42, 49, 61); /* Change background color when clicked */
+  background-color: #ccc; /* Slightly darker gray background color when clicked */
   border-radius: 5px;
 }
 
 /* Add FontAwesome icons */
 .vertical-nav img {
-  margin-right: 10px;
+  margin-right: 10px; /* Add space between icons and headings */
   width: 20px; /* Set icon width as needed */
   height: 20px; /* Set icon height as needed */
 }
