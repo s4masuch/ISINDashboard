@@ -32,7 +32,7 @@ body, ul, li, p {
 /* Style the separating line */
 .separator {
   height: 2px;
-  background-color: #ccc;
+  background-color: #999999;
 }
 
 .vertical-nav ul {
