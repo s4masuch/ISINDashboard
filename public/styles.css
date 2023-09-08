@@ -1,5 +1,5 @@
 /* Reset default styles */
-body, ul, li {
+body, ul, li, p {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -13,13 +13,26 @@ body, ul, li {
   position: fixed;
   top: 20px; /* Add space on top */
   left: 20px; /* Add space on the left */
-  width: 10%;
+  width: 15%;
   height: calc(100vh - 40px); /* Full viewport height with top and bottom space */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   overflow-y: scroll; /* Enable vertical scrolling for the navigation bar */
+}
+
+/* Style the caption within the navigation bar */
+.caption {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+/* Style the separating line */
+.separator {
+  height: 2px;
+  background-color: #ccc;
 }
 
 .vertical-nav ul {
@@ -67,7 +80,7 @@ body, ul, li {
   position: fixed;
   top: 20px; /* Add space on top */
   left: 35%; /* Adjusted to accommodate the navigation bar width and space */
-  width: 80%; /* Take up the remaining 60% of the screen */
+  width: 60%; /* Take up the remaining 60% of the screen */
   height: calc(100vh - 40px); /* Full viewport height with top and bottom space */
   display: flex;
   justify-content: center;
