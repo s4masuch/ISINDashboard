@@ -10,6 +10,7 @@ body, ul, li {
 .vertical-nav {
   background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
+  border: 2px solid #fff; /* White border around the navigation bar */
   position: fixed;
   top: 0;
   left: 0;
@@ -62,8 +63,9 @@ body, ul, li {
 
 /* Style the content window */
 .content-window {
-  background-color: #f0f0f0;
+  background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
+  border: 2px solid #fff; /* White border around the content window */
   position: fixed;
   top: 0;
   left: 15%; /* Adjusted to accommodate the navigation bar width */
