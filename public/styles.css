@@ -1,17 +1,9 @@
 /* Reset default styles */
-body, ul, li, p {
+body, ul, li {
   margin: 0;
   padding: 0;
   list-style: none;
   font-family: Helvetica, Arial, sans-serif; /* Use Helvetica as the font */
-}
-
-/* Style the caption above the navigation bar */
-.caption {
-  font-size: 20px;
-  font-weight: bold;
-  padding: 10px 20px;
-  border-bottom: 2px solid #fff; /* Add a line below the caption */
 }
 
 /* Style the vertical navigation bar */
@@ -19,10 +11,10 @@ body, ul, li, p {
   background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
   position: fixed;
-  top: 50px; /* Adjusted to add space below the caption */
+  top: 20px; /* Add space on top */
   left: 20px; /* Add space on the left */
-  width: 12%; /* Decreased width to 12% */
-  height: calc(100vh - 50px); /* Full viewport height with top space */
+  width: 15%;
+  height: calc(100vh - 40px); /* Full viewport height with top and bottom space */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -40,7 +32,7 @@ body, ul, li, p {
 }
 
 .vertical-nav li {
-  margin-bottom: 10px; /* Decreased vertical space between buttons */
+  margin-bottom: 10px; /* Increase vertical space between buttons */
   width: 100%;
 }
 
@@ -73,10 +65,10 @@ body, ul, li, p {
   background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
   position: fixed;
-  top: 50px; /* Adjusted to add space below the caption */
-  left: 22%; /* Adjusted to accommodate the navigation bar width and space */
-  width: 66%; /* Increased width to cover the right side */
-  height: calc(100vh - 50px); /* Full viewport height with top space */
+  top: 20px; /* Add space on top */
+  left: 35%; /* Adjusted to accommodate the navigation bar width and space */
+  width: 60%; /* Take up the remaining 60% of the screen */
+  height: calc(100vh - 40px); /* Full viewport height with top and bottom space */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,11 +85,11 @@ body, ul, li, p {
 /* Responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
   .vertical-nav {
-    width: 15%; /* Restored width to 15% for smaller screens */
+    width: 25%;
   }
   
   .content-window {
-    left: 15%; /* Adjusted for smaller screens */
-    width: 85%; /* Adjusted for smaller screens */
+    left: 25%;
+    width: 75%;
   }
 }
