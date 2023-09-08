@@ -8,7 +8,7 @@ body, ul, li {
 
 /* Style the vertical navigation bar */
 .vertical-nav {
-  background-color: #000;
+  background-color: rgb(18, 26, 40); /* Change background color */
   border-radius: 10px;
   position: fixed;
   top: 30px; /* Move the navigation bar down */
@@ -40,11 +40,13 @@ body, ul, li {
 
 .vertical-nav a:hover,
 .vertical-nav a.active { /* Mark the headings once they are clicked */
-  background-color: #333;
+  background-color: rgb(42, 49, 61); /* Change background color when clicked */
   border-radius: 5px;
 }
 
 /* Add FontAwesome icons */
-.vertical-nav i {
+.vertical-nav img {
   margin-right: 10px;
+  width: 20px; /* Set icon width as needed */
+  height: 20px; /* Set icon height as needed */
 }
