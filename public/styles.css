@@ -11,13 +11,13 @@ body, ul, li {
   background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
   position: fixed;
-  top: 0; /* Place at the top of the page */
-  left: 0; /* Place at the left of the page */
+  top: 20px; /* Add space on top */
+  left: 20px; /* Add space on the left */
   width: 15%; /* Increase width by 15% */
-  height: 100vh; /* Full viewport height */
+  height: calc(100vh - 40px); /* Full viewport height with top and bottom space */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
+  align-items: flex-end; /* Align items to the right */
   justify-content: flex-start; /* Start from the top */
 }
 
@@ -25,18 +25,20 @@ body, ul, li {
   padding: 10px 0; /* Decrease vertical space between buttons */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
+  align-items: flex-end; /* Align items to the right */
   justify-content: flex-start; /* Start from the top */
   height: 100%; /* Ensure the ul takes up the full height */
 }
 
 .vertical-nav li {
   margin-bottom: 5px; /* Decrease vertical space between buttons */
+  width: 100%; /* Ensure all buttons have the same width */
 }
 
 .vertical-nav a {
   display: flex;
   align-items: center;
+  justify-content: flex-end; /* Align text to the right */
   padding: 10px;
   color: #333; /* Text color */
   text-decoration: none;
