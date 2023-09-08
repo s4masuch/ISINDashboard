@@ -11,10 +11,10 @@ body, ul, li, p {
   background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
   position: fixed;
-  top: 20px; /* Add space on top */
+  top: 10px; /* Increased space on top */
   left: 20px; /* Add space on the left */
   width: 15%;
-  height: calc(100vh - 40px); /* Full viewport height with top and bottom space */
+  height: calc(100vh - 20px); /* Full viewport height with top and bottom space */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -78,10 +78,10 @@ body, ul, li, p {
   background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
   position: fixed;
-  top: 20px; /* Add space on top */
-  left: 35%; /* Adjusted to accommodate the navigation bar width and space */
-  width: 60%; /* Take up the remaining 60% of the screen */
-  height: calc(100vh - 40px); /* Full viewport height with top and bottom space */
+  top: 10px; /* Increased space on top */
+  left: 20%; /* Adjusted to accommodate the navigation bar width and space */
+  width: 70%; /* Take up a larger portion of the screen */
+  height: calc(100vh - 20px); /* Full viewport height with top and bottom space */
   display: flex;
   justify-content: center;
   align-items: center;
