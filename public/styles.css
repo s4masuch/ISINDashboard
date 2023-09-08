@@ -79,7 +79,7 @@ body, ul, li, p {
   border-radius: 10px;
   position: fixed;
   top: 10px; /* Increased space on top */
-  left: 16.5%; /* Adjusted to accommodate the navigation bar width and space */
+  left: 12.5%; /* Adjusted to accommodate the navigation bar width and space */
   width: 78%; /* Take up a larger portion of the screen */
   height: calc(100vh - 20px); /* Full viewport height with top and bottom space */
   display: flex;
