@@ -11,22 +11,27 @@ body, ul, li {
   background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
   position: fixed;
-  top: 30px; /* Move the navigation bar down */
-  left: 30px; /* Move the navigation bar to the right */
-  width: 200px;
-  height: 100%; /* Increase the size to cover the entire height */
+  top: 0; /* Place at the top of the page */
+  left: 0; /* Place at the left of the page */
+  width: 15%; /* Increase width by 15% */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start; /* Start from the top */
 }
 
 .vertical-nav ul {
-  padding: 10px;
+  padding: 10px 0; /* Decrease vertical space between buttons */
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribute the headings evenly */
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start; /* Start from the top */
   height: 100%; /* Ensure the ul takes up the full height */
 }
 
 .vertical-nav li {
-  margin-bottom: 10px;
+  margin-bottom: 5px; /* Decrease vertical space between buttons */
 }
 
 .vertical-nav a {
@@ -36,6 +41,7 @@ body, ul, li {
   color: #333; /* Text color */
   text-decoration: none;
   transition: background-color 0.3s ease;
+  width: 100%; /* Ensure full width for button text */
 }
 
 .vertical-nav a:hover,
