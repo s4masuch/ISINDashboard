@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'isindashboard'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4B88F559AB974542B720C3D292368332 }}
+          publish-profile: ${{ secrets.YOUR_SECRET }}
           package: .
