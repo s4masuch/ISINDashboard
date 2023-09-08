@@ -80,7 +80,7 @@ body, ul, li, p {
   position: fixed;
   top: 10px; /* Increased space on top */
   left: 12.5%; /* Adjusted to accommodate the navigation bar width and space */
-  width: 78%; /* Take up a larger portion of the screen */
+  width: 87%; /* Take up a larger portion of the screen */
   height: calc(100vh - 20px); /* Full viewport height with top and bottom space */
   display: flex;
   justify-content: center;
