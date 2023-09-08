@@ -3,6 +3,7 @@ body, ul, li {
   margin: 0;
   padding: 0;
   list-style: none;
+  font-family: Helvetica, Arial, sans-serif; /* Use Helvetica as the font */
 }
 
 /* Style the vertical navigation bar */
@@ -10,13 +11,18 @@ body, ul, li {
   background-color: #000;
   border-radius: 10px;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 30px; /* Move the navigation bar down */
+  left: 30px; /* Move the navigation bar to the right */
   width: 200px;
+  height: 100%; /* Increase the size to cover the entire height */
 }
 
 .vertical-nav ul {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute the headings evenly */
+  height: 100%; /* Ensure the ul takes up the full height */
 }
 
 .vertical-nav li {
@@ -24,14 +30,21 @@ body, ul, li {
 }
 
 .vertical-nav a {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 10px;
   color: #fff;
   text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-.vertical-nav a:hover {
+.vertical-nav a:hover,
+.vertical-nav a.active { /* Mark the headings once they are clicked */
   background-color: #333;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+}
+
+/* Add FontAwesome icons */
+.vertical-nav i {
+  margin-right: 10px;
 }
