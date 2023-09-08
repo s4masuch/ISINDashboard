@@ -1,13 +1,25 @@
-// JavaScript for handling content display
-document.addEventListener('DOMContentLoaded', function () {
-  const contentWindow = document.getElementById('content-window');
-  const content = document.getElementById('content');
-  const navLinks = document.querySelectorAll('.nav-link');
+document.addEventListener("DOMContentLoaded", function () {
+  const contentWindow = document.getElementById("content-window");
 
-  navLinks.forEach((link) => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      content.textContent = link.getAttribute('data-content');
+  // Handle navigation link clicks
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  navLinks.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      // Get the data-content attribute to determine which page to load
+      const pageToLoad = link.getAttribute("data-content");
+
+      // Load the content of the selected page
+      fetch(`public/${pageToLoad}.html`)
+        .then((response) => response.text())
+        .then((html) => {
+          contentWindow.innerHTML = html;
+        })
+        .catch((error) => {
+          console.error("Error loading content:", error);
+        });
     });
   });
 });
