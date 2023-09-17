@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const pageToLoad = link.getAttribute("data-content");
 
       // Load the content of the selected page
-      fetch(`public/${pageToLoad}.html`)
+      fetch(`/${pageToLoad}.html`)
         .then((response) => response.text())
         .then((html) => {
           contentWindow.innerHTML = html;
