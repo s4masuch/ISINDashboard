@@ -3,8 +3,8 @@ const http = require('http');
 const path = require('path');
 const multer = require('multer');
 const react = require('react');
-const { BlobServiceClient, StorageSharedKeyCredential } = require('@azure/storage-blob');
-const { DefaultAzureCredential } = require('@azure/identity');
+const { BlobServiceClient, BlockBlobClient, StorageSharedKeyCredential } = require('@azure/storage-blob');
+const { AzureCliCredential, ManagedIdentityCredential } = require('@azure/identity');
 
 const app = express();
 const server = http.createServer(app);
@@ -15,12 +15,23 @@ const port = process.env.PORT || 8080; // Use the PORT environment variable or d
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// Acquire a credential object (try ManagedCredential, if not take AzureCliCredential)
+const managedIdentityCredential = new ManagedIdentityCredential();
+
+if (managedIdentityCredential.isAvailable) {
+  // The ManagedIdentityCredential is working.
+  tokenCredential = new ManagedIdentityCredential();
+} else {
+  // The ManagedIdentityCredential is not working.
+  tokenCredential = new AzureCliCredential();
+}
+
 // Configure Azure Blob Storage
 const storageAccountName = process.env.AZURESTORAGEACCOUNTNAME || 'csb10032002e776c96f';
-const connectionString = process.env.AZURECONNECTIONSTRING || 'https://csb10032002e776c96f.blob.core.windows.net/';
+const connectionString = process.env.AZURECONNECTIONSTRING || 'https://csb10032002e776c96f.blob.core.windows.net';
 const containerName = 'csvfiles';
-const sharedKeyCredential = new StorageSharedKeyCredential(storageAccountName,connectionString);
-const blobServiceClient = new BlobServiceClient(connectionString, new DefaultAzureCredential);
+const blobServiceClient = new BlobServiceClient(connectionString, tokenCredential);
 const accountName = blobServiceClient.accountName;
 if (!accountName) throw Error('Azure Storage accountName not found');
 
@@ -33,19 +44,13 @@ app.post('/upload-endpoint', upload.single('file'), async (req, res) => {
   if (!req.file) {
     return res.status(400).send('No file uploaded.');
   }
-  try {
     
     const blobName = req.file.originalname; // Use the original filename as the blob name
-    const containerClient = blobServiceClient.getContainerClient(containerName);
-    const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+    const blockBlobClient = new BlockBlobClient(`${connectionString}/${containerName}/${blobName}`, tokenCredential)
 
-  } catch (error) {
-    console.error('Error setting values: ', error)
-    res.status(500).send('File upload failed. Please try again.');
-  }
   try {
     // Upload the file to Azure Blob Storage
-    await blockBlobClient.uploadData(req.file.buffer, req.file.buffer.length);
+    await blockBlobClient.uploadFile(req.file.originalname);
 
     res.status(200).send('File uploaded successfully.');
   } catch (error) {
