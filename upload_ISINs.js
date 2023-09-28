@@ -26,6 +26,48 @@ async function uploadISINsToAzureBlobStorage() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const uploadButton = document.getElementById("uploadButton");
+  const fileInput = document.getElementById("fileInput");
+  const feedbackContainer = document.getElementById("feedbackContainer");
+  const feedbackText = document.getElementById("feedbackText");
+
+  uploadButton.addEventListener("click", function () {
+    // Check if a file is selected
+    if (fileInput.files.length === 0) {
+      alert("Please select a file to upload.");
+      return;
+    }
+
+    // Show loading feedback
+    feedbackContainer.style.display = "block";
+    feedbackText.textContent = "Uploading...";
+
+    // You can handle the file upload here
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    fetch("/upload-endpoint", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Show success feedback
+          feedbackText.textContent = "File uploaded successfully!";
+        } else {
+          // Show error feedback with error information
+          feedbackText.textContent = "File upload failed. Please try again.";
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Show error feedback with error information
+        feedbackText.textContent = "File upload failed. Please try again.";
+      });
+  });
+});
+
 // Usage example
 uploadISINsToAzureBlobStorage()
   .then((result) => {
