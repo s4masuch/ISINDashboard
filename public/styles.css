@@ -10,11 +10,7 @@ body, ul, li, p {
 .vertical-nav {
   background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
-  position: fixed;
-  top: 10px; /* Increased space on top */
-  left: 15px; /* Add space on the left */
-  width: 11%;
-  height: calc(100vh - 20px); /* Full viewport height with top and bottom space */
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -77,11 +73,7 @@ body, ul, li, p {
 .content-window {
   background-color: #f0f0f0; /* Light gray background color */
   border-radius: 10px;
-  position: fixed;
-  top: 10px; /* Increased space on top */
-  left: 12.5%; /* Adjusted to accommodate the navigation bar width and space */
-  width: 87%; /* Take up a larger portion of the screen */
-  height: calc(100vh - 20px); /* Full viewport height with top and bottom space */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,18 +90,10 @@ body, ul, li, p {
 /* Responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
   .vertical-nav {
-    width: 25%;
+    width: 100%;
   }
   
   .content-window {
-    left: 25%;
-    width: 75%;
+    width: 100%;
   }
-}
-
-
-
-/* Styles for ISIN Upload module */
-.isin-upload-content {
-  /* Your styles here */
 }
