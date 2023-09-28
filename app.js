@@ -21,7 +21,7 @@ const connectionString = process.env.AZURECONNECTIONSTRING || 'https://csb100320
 const containerName = 'csvfiles';
 const sharedKeyCredential = new StorageSharedKeyCredential(storageAccountName,connectionString);
 const blobServiceClient = new BlobServiceClient(connectionString, new DefaultAzureCredential);
-const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+const accountName = blobServiceClient.accountName;
 if (!accountName) throw Error('Azure Storage accountName not found');
 
 // Set up a multer storage engine for handling file uploads
