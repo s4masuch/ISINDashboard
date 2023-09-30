@@ -1,3 +1,6 @@
+// Debug log
+console.log("isin-upload.js is called");
+
 // Add event listener to the upload button
 document.addEventListener("DOMContentLoaded", function () {
   const uploadButton = document.getElementById("uploadButton");

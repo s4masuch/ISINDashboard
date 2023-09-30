@@ -1,3 +1,6 @@
+// Debug log
+console.log("script.js is called");
+
 document.addEventListener("DOMContentLoaded", function () {
   const contentWindow = document.getElementById("content-window");
 
@@ -16,6 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => response.text())
         .then((html) => {
           contentWindow.innerHTML = html;
+          const script = document.createElement("script");
+          script.src = `/${pageToLoad}.js`;
+          document.head.appendChild(script);
         })
         .catch((error) => {
           console.error("Error loading content:", error);

@@ -1,8 +1,12 @@
+// Debug log
+console.log("app.js is called");
+
 const express = require('express');
 const http = require('http');
 const path = require('path');
 const multer = require('multer');
 const react = require('react');
+const cors = require('cors');
 const { BlobServiceClient, BlockBlobClient, StorageSharedKeyCredential } = require('@azure/storage-blob');
 const { AzureCliCredential, ManagedIdentityCredential } = require('@azure/identity');
 
@@ -39,6 +43,8 @@ if (!accountName) throw Error('Azure Storage accountName not found');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+// Use cors to enable cross-domain endpoints
+app.use("/upload-endpoint", cors());
 // Handle POST requests to the /upload-endpoint route
 app.post('/upload-endpoint', upload.single('file'), async (req, res) => {
   if (!req.file) {
