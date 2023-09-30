@@ -85,6 +85,13 @@ body, ul, li, p {
   width: 100%;
 }
 
+/* Style bullet points for features and bug fixes */
+.feature-bullet ul,
+.bug-bullet ul {
+  text-align: left;
+  margin-left: 20px;
+}
+
 /* Responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
   .container {
