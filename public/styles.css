@@ -86,8 +86,7 @@ body, ul, li, p {
 }
 
 /* Style bullet points for features and bug fixes */
-.feature-bullet ul,
-.bug-bullet ul {
+ul {
   text-align: left;
   margin-left: 20px;
 }
