@@ -50,7 +50,7 @@ app.post('/upload-endpoint', upload.single('file'), async (req, res) => {
 
   try {
     // Upload the file to Azure Blob Storage
-    await blockBlobClient.uploadFile(req.file.originalname);
+    await blockBlobClient.uploadData(req.file.buffer);
 
     res.status(200).send('File uploaded successfully.');
   } catch (error) {
