@@ -81,7 +81,7 @@ body, ul, li, p {
 /* Style the content inside the window */
 .content {
   padding: 20px;
-  text-align: center;
+  text-align: left;
   width: 100%;
 }
 
