@@ -2,7 +2,8 @@
 console.log("isin-upload.js is called");
 
 // Add event listener to the upload button
-document.addEventListener("DOMContentLoaded", function () {
+//document.addEventListener("DOMContentLoaded", function () {
+try {
   const uploadButton = document.getElementById("uploadButton");
   const fileInput = document.getElementById("fileInput");
 
@@ -36,4 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("File upload failed. Please try again.");
       });
   });
-});
+//});
+
+} catch(error) {
+  console.log("Error caught: "+error);
+}
