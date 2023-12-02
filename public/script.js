@@ -1,6 +1,4 @@
 // Debug log
-alert('DOMContentLoaded event listener added');
-
 document.addEventListener("DOMContentLoaded", function () {
   const contentWindow = document.getElementById("content-window");
 
