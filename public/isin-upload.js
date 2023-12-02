@@ -1,44 +1,76 @@
 // Debug log
 console.log("isin-upload.js is called");
 
-// Add event listener to the upload button
-//document.addEventListener("DOMContentLoaded", function () {
-try {
-  const uploadButton = document.getElementById("uploadButton");
-  const fileInput = document.getElementById("fileInput");
+// isin-upload.js
+document.addEventListener('DOMContentLoaded', function () {
+  const uploadButton = document.getElementById('uploadButton');
+  uploadButton.addEventListener('click', handleFileUpload);
+});
 
-  uploadButton.addEventListener("click", function () {
-    // Check if a file is selected
-    if (fileInput.files.length === 0) {
-      alert("Please select a file to upload.");
-      return;
+function handleFileUpload() {
+  const fileInput = document.getElementById('fileInput');
+  const feedbackText = document.getElementById('feedbackText');
+
+  const file = fileInput.files[0];
+
+  if (!file) {
+    feedbackText.innerText = 'Please select a file.';
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    const content = e.target.result;
+    const isins = parseFileContent(content);
+
+    // Display ISINs in the table
+    displayISINs(isins);
+    feedbackText.innerText = 'File uploaded successfully.';
+  };
+
+  reader.readAsText(file);
+}
+
+function parseFileContent(content) {
+  // Implement your logic to parse the file content and extract ISINs
+  // For example, if it's a CSV file, you can split by lines and commas
+
+  const lines = content.split('\n');
+  const isins = [];
+
+  for (const line of lines) {
+    const columns = line.split(',');
+    const isin = columns[0]; // Assuming ISIN is in the first column
+    if (isin) {
+      isins.push(isin.trim());
     }
+  }
 
-    // You can handle the file upload here
-    // For example, you can use FormData to send the file to a server
-    const formData = new FormData();
-    formData.append("file", fileInput.files[0]);
+  return isins;
+}
 
-    // Send the formData to the server using fetch or XMLHttpRequest
-    // Example using fetch:
-    fetch("/upload-endpoint", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => {
-        if (response.ok) {
-          alert("File uploaded successfully!");
-        } else {
-          alert("File upload failed. Please try again.");
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("File upload failed. Please try again.");
-      });
-  });
-//});
+function displayISINs(isins) {
+  const feedbackContainer = document.getElementById('feedbackContainer');
+  const table = document.createElement('table');
+  table.border = '1';
 
-} catch(error) {
-  console.log("Error caught: "+error);
+  // Add table header
+  const headerRow = table.insertRow();
+  const headerCell = headerRow.insertCell(0);
+  headerCell.innerText = 'ISIN';
+
+  // Add table rows with ISINs
+  for (const isin of isins) {
+    const row = table.insertRow();
+    const cell = row.insertCell(0);
+    cell.innerText = isin;
+  }
+
+  // Replace existing table (if any) with the new one
+  while (feedbackContainer.firstChild) {
+    feedbackContainer.removeChild(feedbackContainer.firstChild);
+  }
+
+  feedbackContainer.appendChild(table);
 }
