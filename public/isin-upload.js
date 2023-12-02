@@ -1,12 +1,11 @@
-// Debug log
-console.log("isin-upload.js is called");
-
 // isin-upload.js
+console.log('DOMContentLoaded event listener added');
 document.addEventListener('DOMContentLoaded', function () {
   const uploadButton = document.getElementById('uploadButton');
   uploadButton.addEventListener('click', handleFileUpload);
 });
 
+console.log('handleFileUpload function called!');
 function handleFileUpload() {
   const fileInput = document.getElementById('fileInput');
   const feedbackText = document.getElementById('feedbackText');
@@ -32,6 +31,7 @@ function handleFileUpload() {
   reader.readAsText(file);
 }
 
+console.log('parseFileContent function called!');
 function parseFileContent(content) {
   // Implement your logic to parse the file content and extract ISINs
   // For example, if it's a CSV file, you can split by lines and commas
@@ -50,6 +50,7 @@ function parseFileContent(content) {
   return isins;
 }
 
+console.log('displayISINs function called!');
 function displayISINs(isins) {
   const feedbackContainer = document.getElementById('feedbackContainer');
   const table = document.createElement('table');
