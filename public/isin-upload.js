@@ -1,4 +1,5 @@
 // isin-upload.js
+alert('DOMContentLoaded event listener added');
 console.log('DOMContentLoaded event listener added');
 document.addEventListener('DOMContentLoaded', function () {
   const uploadButton = document.getElementById('uploadButton');
