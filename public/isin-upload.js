@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function handleFileUpload() {
+  console.log('handleFileUpload function called');
   const fileInput = document.getElementById('fileInput');
   const feedbackText = document.getElementById('feedbackText');
   const tableContainer = document.getElementById('tableContainer'); // Add this line
